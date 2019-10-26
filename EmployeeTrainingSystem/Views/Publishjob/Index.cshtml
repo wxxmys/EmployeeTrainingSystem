@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model IEnumerable<EmployeeTrainingEntity.Publishjob>
+
+@Html.ActionLink("添加作业", "Insert", "Publishjob", new { id = "" }, new { style = "text-align:left;border:0px;", @class = "btn btn-default glyphicon " })
+
+    <div id="tbPublishjob" class="text-center">
+        <p></p>
+        <table class="table table-hover" border="1" style="margin:0 auto;">
+            <thead>
+                <tr>
+                    <th>老师</th>
+                    <th>作业内容</th>
+                    <th>作业布置时间</th>
+                    <th>题库</th>
+                    <th>班级</th>
+                    <th>删除</th>
+                    <th>修改</th>
+                </tr>
+            </thead>
+            <tbody id="TablePublishjob" editable:true>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Teacher.Name</td>
+                        <td>@item.Content</td>
+                        <td>@item.Releasetime</td>
+                        <td>@item.Information.Title</td>
+                        <td>@item.CollegeClass.Name</td>
+                        <td> <button class="btn btn-info" onclick="RemovePublishjob('@item.ID');"><i class="glyphicon glyphicon-remove"></i>删除</button></td>
+                        <td>@Html.ActionLink("修改", "Update", "Publishjob", new { id = @item.ID }, new { @class = "btn btn-info glyphicon glyphicon-th-list" })</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+<script>
+
+    function RemovePublishjob(id) {
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: "../../Publishjob/Delete",
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                if (data == "ok")
+                    location.reload();
+            }
+        });
+    }//删除
+    function RmendPublishjob(id) {
+        alert(ID);
+        $.ajax({
+            type: 'post',
+            async: true,
+            url: "../../Publishjob/Update",
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                alert(ID);
+            }
+        });
+    }//删除
+
+</script>

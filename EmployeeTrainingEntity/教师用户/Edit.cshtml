@@ -1,0 +1,45 @@
+﻿@using EmployeeTrainingEntity;
+@model EmployeeTrainingEntity.TrainPlan
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<html>
+<head></head>
+<body>
+    <h1>修改培训计划</h1>
+    @using (Html.BeginForm("Edit", "Train", FormMethod.Post))
+    {
+<table>
+    <tr>
+        <td>姓名:</td>
+        <td>
+            <input type="text" class="form-control" placeholder="请输入姓名" name="Person" />
+        </td>
+    </tr>
+    <tr>
+        <td>时间:</td>
+        <td>
+            <input type="datetime" class="form-control" placeholder="XXXX/XX/XX" name="Time" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            计划内容:
+        </td>
+        <td>
+            <input type="text" class="form-control" placeholder="请输入计划内容" name="Content" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" name="添加" />
+            <input type="reset" name="取消" />
+        </td>
+    </tr>
+</table>
+    }
+    @Html.ActionLink("返回首页","Index")
+</body>
+</html>
+

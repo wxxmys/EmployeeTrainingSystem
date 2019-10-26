@@ -1,0 +1,363 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    /*background-color: #F0B775;*/
+}
+
+header {
+    background-color: #F0B775;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+/*教学计划页面 div
+#divContainer {
+    text-align:right;
+}
+.interval:before {
+    content: "|";
+    float: left;
+    height: 100%;
+    line-height: inherit;
+    margin: 0 4px;
+}
+整体
+.list_con {
+    font-size: 12px;
+    color: lightgray;
+}
+地边框
+dd a {
+    font-size: 12px;
+}
+
+#divDetail {
+    margin-top: 10px;
+    display: block;
+}
+
+    #divDetail > ul > li {
+        list-style: none;
+        border-bottom: 1px solid rgba(0, 0, 0, .05);
+        background-color: rgba(244,240,230,.5);
+        background-color: azure;
+        transition: all 0.3s;
+        margin:5px 0;
+    }
+
+.title {
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    padding:0 15px;
+}
+
+#divDetail .list_con .title h2 {
+    font-size: 20px;
+    color: #fff;
+}
+
+
+
+.list_con a:hover {
+    color: Highlight;
+}
+
+.close_tag {
+    font-size: 12px;
+    position: absolute;
+    right: 15px;
+    top: 0;
+}
+
+    .close_tag .dropdown-menu {
+        min-width: 70px;
+    }
+
+        .close_tag .dropdown-menu li {
+            width: 70px;
+            color: black;
+            text-align: center;
+            list-style: none;
+        }
+
+        .close_tag .dropdown-menu a {
+            border: none;
+            color: black;
+            display: block;
+        }
+
+            .close_tag .dropdown-menu a:hover {
+                color: Highlight;
+                background-color: rgba(0, 0, 0, .05);
+            }
+
+    .close_tag .btn-sm, .btn-group-sm > .btn {
+        padding: 3px;
+    }
+
+.btn:focus, .btn.focus {
+    box-shadow: none;
+    color: Highlight;
+}
+
+.btn:hover {
+    color: Highlight;
+}
+中
+#divDetail .summary {
+    color: lightslategray;
+    padding: 20px;
+    padding-bottom: 0;
+    overflow: hidden;
+}
+    下
+    #divDetail .list_con .list_userbar {
+    height: 24px;
+    line-height: 24px;
+    position: relative;
+    background-color:aliceblue;
+}
+
+    #divDetail .list_con .list_userbar i {
+        height: 100%;
+        width: 30px;
+        float: left;
+    }
+
+    #divDetail .list_con .list_userbar span {
+        float: left;
+    }
+
+    #divDetail .list_con .list_userbar .interactive {
+        height: 100%;
+        width: 70px;
+        position: absolute;
+        right: 0;
+    }*/
+/*教学计划*/
+.user_img img {
+    margin-left: 3px;
+    margin-bottom: 3px;
+    height: 80%;
+    vertical-align: middle;
+}
+
+#imgCover {
+    height: 150px;
+    vertical-align: middle;
+}
+
+
+/*热门课程鼠标悬停动画*/
+.HTMOT {
+    padding: 0px;
+    overflow: hidden;
+    border: 1px solid #bababa;
+    margin: 10px;
+    color: rgb(128, 128, 128);
+    position: relative;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+    /* Safari */
+}
+
+    .HTMOT img {
+        cursor: pointer;
+        -webkit-transition: all 1s; /* Safari */
+        transition: all 1s;
+    }
+
+    .HTMOT:hover {
+        bottom: 5px;
+        color: black;
+        box-shadow: 0px 5px 5px 7px #bababa;
+    }
+
+        .HTMOT:hover .HTMOTimg {
+            transform: scale(1.1);
+        }
+
+    .HTMOT img:hover {
+        /*transform: scale(1.1);*/
+    }
+
+/*直播界面样式*/
+.zhibo {
+    padding: 0px;
+    overflow: hidden;
+    border: 1px solid #bababa;
+    margin: 10px;
+    color: #bababa;
+    border-radius: 4px;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+
+    .zhibo:hover {
+        bottom: 5px;
+        color: black;
+        box-shadow: 0px 5px 5px 7px #bababa;
+    }
+
+        .zhibo:hover .Hoverplay {
+            display: block;
+        }
+
+        .zhibo:hover .zhiboaa {
+            opacity: .5;
+            background: #000;
+        }
+
+        .zhibo:hover .Hoverplay i {
+            transform: scale(2);
+        }
+
+    .zhibo a {
+        text-decoration: none;
+        color: black;
+    }
+
+.zhiboaa {
+    text-decoration: none;
+    color: #bababa;
+}
+
+.Hoverplay {
+    display: none;
+    opacity: .5;
+    background: #000;
+    left: 0;
+    width: 100%;
+}
+
+    .Hoverplay i {
+        -webkit-transition: all 1s;
+        transition: all 1s;
+        position: absolute;
+        top: 35%;
+        left: 45%;
+        color: black;
+    }
+
+.Livelabel {
+}
+
+    .Livelabel span {
+        font-size: 12px;
+        padding: 0;
+    }
+/*更多标签样式*/
+.Gengduo {
+    display: inline-block;
+    max-width: 100%;
+    text-align: center;
+    font-family: 微软雅黑;
+    text-decoration: none;
+    font-size: 12px;
+    color: #969696;
+    border: solid 1px #a5a5a5;
+    padding: 5px 15px;
+    float: right;
+    transition: all ease .3s;
+}
+
+    .Gengduo:hover {
+        text-decoration: none;
+        background-color: #333333 !important;
+        color: #ffffff !important;
+        border-width: 1px !important;
+        border-style: solid !important;
+        border-color: #333333 !important;
+        font-weight: 400 !important;
+        transition: all ease .3s;
+    }
+
+/*优秀教师样式*/
+.grid-item:hover {
+    background: #fff;
+}
+.grid a {
+    color: rgb(128, 128, 128);
+}
+
+.grid a:hover {
+    color:black;
+}
+    .grid a:hover .grid-p {
+        top:-70px;
+
+    }
+    .grid a:hover .gridconceal {
+        color:#fff;
+    }
+
+    .grid-item img {
+        border-radius: 5px;
+    }
+
+.grid-item h5 {
+    text-align: center;
+}
+.gridconceal {
+    transition: all ease .3s;
+}
+
+.grid-p {
+    font-size: 13px;
+    position: relative;
+    top: 0px;
+    transition: all ease .3s;
+}

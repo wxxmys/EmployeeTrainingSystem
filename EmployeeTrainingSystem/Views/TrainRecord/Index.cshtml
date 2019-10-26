@@ -1,0 +1,69 @@
+﻿@model IEnumerable<EmployeeTrainingEntity.TrainRecord>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<html>
+<head>
+    <script>
+        function RemoveDelete(ID){
+            $.ajax({
+                type: "post",
+                async: true,
+                url: '../../TrainRecord/Delete',
+                data: { ID: ID },
+                dataType: 'json',
+                success: function (data) {
+                    if (data == "ok")
+                        location.reload();
+                    else
+                        alert("删除失败")
+                }
+            });
+        }
+        function UpdateDetail(ID) {
+            alert(ID);
+            $.ajax({
+                type: "post",
+                async: true,
+                url: '../../TrainRecord/Edit',
+                data: { ID: ID },
+                dataType: 'json',
+                success: function (data) {
+                    alert(ID);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>培训记录</h1>
+    @Html.ActionLink("新增", "Create")
+    <table class="table">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>时间</th>
+                <th>培训课程</th>
+                <th>成绩</th>
+                <th>培训内容</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+            {
+            <tr>
+                <td style="display:none">@i.ID</td>
+                <td>@i.Person</td>
+                <td>@i.DateTime</td>
+                <td>@i.ClassScheduleName?.ClassScheduleName</td>
+                <td>@i.Score</td>
+                <td>@i.TrainContent</td>
+                <td>@Html.ActionLink("修改", "Edit", "TrainRecord", new { ID = @i.ID })&nbsp;&nbsp;<a href="#" onclick="RemoveDelete('@i.ID');">删除</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

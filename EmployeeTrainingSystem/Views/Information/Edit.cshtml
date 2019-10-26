@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "Information", FormMethod.Post, new { id = Model.ID }))
+{
+    <fieldset>
+        <legend align="center">修改题目</legend>
+        <div align="center">
+            <table>
+                <tr>
+                    <td>标题：</td>
+                    <td>
+                        <input type="text" name="Title" value="@Model.Title" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>内容：</td>
+                    <td>
+                        <input type="text" name="Subject" value="@Model.Subject" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>答案：</td>
+                    <td>
+                        <input type="text" name="Answer" value="@Model.Answer" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>课程分类：</td>
+                    <td>
+                        <input type="text" name="ClassSchedule" value="@Model.ClassSchedule" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </fieldset>
+    <input  type="submit" class="btn btn-default" value="修改" style="margin-top: 20px; color:green;border:1px solid ;" />
+    <div id="divContainer">
+
+        <button type="button" class="btn btn-danger">@Html.ActionLink("返回", "Index", "Information")</button>
+
+    </div>
+}

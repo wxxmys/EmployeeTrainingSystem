@@ -1,0 +1,33 @@
+﻿<style>
+    .dropdown-menu a{
+       margin-left:20px;
+    }
+</style>
+<div class="d-sm-inline-flex flex-sm-row-reverse" style="width:100px;">
+    <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                教师模块
+            </a>
+            <div class="dropdown-menu">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Teaching" asp-action="Index">教学计划</a>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Publishjob" asp-action="Index">作业布置</a>
+                <a class="nav-link text-dark" asp-area="" asp-controller="TrainRequest" asp-action="Index">作业批改</a>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Information" asp-action="Index">题库</a>
+                <a class="nav-link text-dark" asp-area="" asp-controller="TrainRequest" asp-action="Index">培训申请</a>
+                <a class="nav-link text-dark" asp-area="" asp-controller="TrainPlan" asp-action="Index">培训计划</a>
+                <a class="nav-link text-dark" asp-area="" asp-controller="TrainRecord" asp-action="Index">培训记录</a>
+                <a class="nav-link text-dark" asp-area="" asp-controller="TrainQualificationCertificate" asp-action="Index">培训资格证明</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                学员模块
+            </a>
+            <div class="dropdown-menu">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Member" asp-action="Index">学员信息</a>
+                <a class="nav-link text-dark" asp-area="" asp-controller="CourseCategory" asp-action="Index">培训课程</a>
+            </div>
+        </li>
+    </ul>
+</div>

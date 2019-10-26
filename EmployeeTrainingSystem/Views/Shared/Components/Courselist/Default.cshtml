@@ -1,0 +1,55 @@
+﻿@using EmployeeTrainingEntity
+@model IEnumerable<TeachingPlan>
+@foreach (var item in Model)
+{
+    @if (item.Parent == null)
+    {<ul class="listbox">
+            @*章节内容*@
+            @foreach (var pitem in Model)
+            {
+                @if (pitem.Parent != null && pitem.Parent == item)
+                {
+                    <li class=" ml-3 text-info">
+                        @pitem.Title
+                    </li>
+                    @*章节的文件*@
+                    @if (pitem.Courseware != null)
+                    {
+                        @foreach (var cows in pitem.Courseware.OrderBy(x => x.CreateDate))
+                        {
+                            <li class=" ml-3">
+                                @*判断是否可播放视频*@
+                                @if (cows.IMethod == IMethod.录播)
+                                {
+                                    <a asp-action="index" asp-controller="player" asp-route-id="@item.ID" asp-route-p="@cows.ID">@cows.Title</a>
+                                }
+                                else
+                                {
+                                    <a href="@cows.LinkAddress" target="_blank">@cows.Title</a>
+                                }
+                            </li>
+                        }
+                    }
+
+                }
+            }
+            @*当前计划的下级文件*@
+            @if (item.Courseware != null && item.Parent == null)
+            {
+                foreach (var c in item.Courseware.OrderBy(x => x.CreateDate))
+                {
+                    <li class="ml-3">
+                        @if (c.IMethod == IMethod.录播)
+                        {
+                            <a asp-action="index" asp-controller="player" asp-route-id="@item.ID" asp-route-p="@c.ID">@c.Title</a>
+                        }
+                        else
+                        {
+                            <a href="@c.LinkAddress" target="_blank">@c.Title</a>
+                        }
+                    </li>
+                }
+            }
+        </ul>
+    }
+}

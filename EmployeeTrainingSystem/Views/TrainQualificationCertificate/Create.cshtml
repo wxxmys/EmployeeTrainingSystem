@@ -1,0 +1,50 @@
+﻿@using EmployeeTrainingEntity
+@model EmployeeTrainingEntity.TrainQualificationCertificate
+@{
+    ViewData["Title"] = "Create";
+}
+
+<html>
+<head>
+</head>
+<body>
+    <h1>新增培训资格证明</h1>
+    @using (Html.BeginForm("Create", "Train", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>姓名:</td>
+                <td>
+                    <input type="text" class="form-control" placeholder="请输入姓名" name="Person" />
+                </td>
+            </tr>
+            <tr>
+                <td>证书编号:</td>
+                <td>
+                    <input type="text" class="form-control" placeholder="请输入证书编号" name="CertificateNumber" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    时间:
+                </td>
+                <td>
+                    <input type="datetime" class="form-control" placeholder="XXXX/XX/XX" name="DateTime" />
+                </td>
+            </tr>
+            <tr>
+                <td>培训内容:</td>
+                <td><input type="text" class="form-control" placeholder="请输入培训内容" name="TrainingContent" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" name="添加" />
+                    <input type="reset" name="取消" />
+                </td>
+            </tr>
+        </table>
+    }
+    @Html.ActionLink("返回首页", "Index")
+</body>
+</html>
+

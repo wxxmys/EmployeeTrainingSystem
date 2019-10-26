@@ -1,0 +1,50 @@
+﻿@model EmployeeTrainingEntity.TestPaper
+
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detail</title>
+</head>
+<body>
+
+    <div>
+        <h4>明细</h4>
+        <hr />
+        <dl class="row" align="center">
+            <dt class="col-sm-2">
+               
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                试卷建立试卷
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Time)
+            </dd>
+            <dt class="col-sm-2">
+               考试时间
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TestTime)
+            </dd>
+            <dt class="col-sm-2">
+               满分成绩
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Performance)
+            </dd>
+        </dl>
+    </div>
+    <div align="center">
+        <button type="button" class="btn btn-danger">@Html.ActionLink("开始考试", "Index", "ExamContent",new { id = Model.ID })</button>
+        <button type="button" class="btn btn-danger">@Html.ActionLink("返回", "Index", "TestPaper")</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "Add";
+}
+@using (Html.BeginForm("Add", "CourseCategory", FormMethod.Post, new { id = "Ccadd" }))
+{
+    <fieldset>
+        <legend>添加课程</legend>
+        <div>
+            <table>
+                <tr>
+                    <td>课程名：</td>
+                    <td>
+                        <input type="text" name="ClassScheduleName" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>时间：</td>
+                    <td>
+                        <input type="datetime-local" name="Time" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>地点：</td>
+                    <td>
+                        <input type="text" name="Site" />
+                    </td>
+                </tr>
+                @*<tr>
+                    <td>老师：</td>
+                    <td>
+                        <input type="text" name="Teacher" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>学员：</td>
+                    <td>
+                        <input type="text" name="Student" />
+                    </td>
+                </tr>*@
+            </table>
+        </div>
+    </fieldset>
+    <input type="submit" class="btn btn-outline-success" value="添加" style="margin-top: 20px; color:green;border:1px solid ;" />
+    <div id="divTrain">
+        <button type="button" class="btn btn-danger" onclick="location.href='/CourseCategory/Index'">返回</button>
+
+    </div>
+}

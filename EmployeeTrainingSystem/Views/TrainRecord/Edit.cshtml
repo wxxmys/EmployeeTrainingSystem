@@ -1,0 +1,56 @@
+﻿@using EmployeeTrainingEntity;
+@model EmployeeTrainingEntity.TrainRecord
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<html>
+<head>
+</head>
+<body>
+    <h1>培训记录修改</h1>
+    @using (Html.BeginForm("Edit", "Train", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>姓名:</td>
+                <td>
+                    <input type="text" class="form-control" placeholder="请输入姓名" name="Person">
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>时间:</td>
+                <td><input type="datetime" class="form-control" placeholder="XXXX/XX/XX" name="DateTime"></td>
+            </tr>
+            <tr>
+                <td>培训课程:</td>
+                <td>
+                    <select name="ClassScheduleName.ID" class="form-control">
+                        @foreach (var item in ViewBag.ClassScheduleName)
+                        {
+                            <option value="@item.ID">@item.ClassScheduleName</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>成绩:</td>
+                <td><input type="text" class="form-control" placeholder="请输入成绩" name="Score"></td>
+            </tr>
+            <tr>
+                <td>培训内容:</td>
+                <td><input type="text" class="form-control" placeholder="请输入培训内容" name="TrainContent"></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" name="添加" />
+                    <input type="reset" name="取消">
+                </td>
+            </tr>
+        </table>
+    }
+</body>
+</html>
+

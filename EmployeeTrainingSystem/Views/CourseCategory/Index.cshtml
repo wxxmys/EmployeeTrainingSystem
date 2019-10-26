@@ -1,0 +1,43 @@
+﻿@model IEnumerable<EmployeeTrainingEntity.ClassSchedule>
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="ClassSchedule">
+    <h2>培训课程</h2>
+
+        <table class="table table-hover" border="1" style="margin:0 auto;">
+            <thead>
+                <tr>
+
+                    <th>课程名</th>
+                    <th>时间</th>
+                    <th>地点</th>
+                    @*<th>老师</th>*@
+                    @*<th>学员</th>*@
+                    <th>编辑</th>
+                    <th>删除</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+
+                    <td>@item.ClassScheduleName</td>
+                    <td>@item.Time</td>
+                    <td>@item.Site</td>
+                    @*<td>@item.Teacher</td>*@
+                    @*<td>@item.Student</td>*@
+                    <td><a asp-action="Update" asp-route-id="@item.ID">修改</a></td>
+                    <td><a asp-action="Delete" asp-route-id="@item.ID">删除</a></td>
+                </tr>
+                }
+
+            </tbody>
+        </table>
+        <div id="divTrain">
+            <button type="button" class="btn btn-success" onclick="location.href='/CourseCategory/Add'">添加</button>
+            <button type="button" class="btn btn-danger" onclick="location.href='/Home/Index'">返回</button>
+            
+        </div>
+    </div>

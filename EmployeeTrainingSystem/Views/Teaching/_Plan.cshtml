@@ -1,0 +1,42 @@
+﻿@model TeachingViewModel
+<div class='modal-header'>
+    <h5 class='modal-title' id="myModalLabel ">
+        @if (Model != null){<span>修改-</span>@Model.Title}
+        else {<span>新增</span>}
+    </h5>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+</div>
+<div class="container mb-lg-3">
+    <form action="/Teaching/Creplan " enctype="multipart/form-data" method="Post">
+        @Html.AntiForgeryToken()
+        <div class="form-group ">
+            <label class="col-form-label ">上传封面</label>
+            <div class="custom-file ">
+                <input type="file" name="Cover " />
+            </div>
+            <div class="form-group ">
+                <label for="validationDefault01 " class="col-form-label ">标题</label>
+                <input type="text" class="form-control " id="validationDefault01 " name="Title" required>
+                <div class=" valid-feedback "></div>
+            </div>
+            <div class="form-group ">
+                <label for="message-text " class="col-form-label ">添加描述</label>
+                <textarea class="form-control " id="message-text " name="Content" required></textarea>
+            </div>
+            <div class="form-group ">
+                <label for="validationDefault02 " class="col-form-label ">设置开始时间</label>
+                <input type="date" class="form-control " id="validationDefault02 " name="StartDate ">
+                <div class=" valid-feedback "></div>
+            </div>
+            <div class="form-group ">
+                <label for="validationDefault03 " class="col-form-label ">设置结束时间</label>
+                <input type="date" class="form-control " id="validationDefault03 " name="EndDate ">
+                <div class=" valid-feedback"></div>
+            </div>
+            <div class="modal-footer ">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关</button>
+                <button type="submit" class="btn btn-primary">确定</button>
+            </div>
+        </div>
+    </form>
+</div>

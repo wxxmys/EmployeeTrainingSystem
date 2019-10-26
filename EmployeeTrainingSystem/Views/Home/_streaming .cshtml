@@ -1,0 +1,57 @@
+﻿@{
+    var aa = "1000000000";
+}
+
+@*---------直播课程页面--------------*@
+<!-- AOS统一默认样式设置-->
+<script>
+    AOS.init({
+        offset: 200,
+        duration: 600,
+        easing: 'ease-in-sine',
+        delay: 300,
+        once: 'true',
+    });
+</script>
+<style>
+
+</style>
+<link href="~/css/site.css" rel="stylesheet" />
+<div data-aos="fade-up" >
+    <div class="h4 " style="color:#333333;margin-top:50px;">
+        直播<span class="h6" style="color:#bababa;">N.live streaming</span>
+        <a href="#" class="Gengduo">
+            查看更多
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+        </a>
+    </div>
+    <hr />
+</div>
+       
+<div class="container">
+    <div class="row" data-aos="fade-up">
+        @foreach (var item in aa)
+        {
+
+        <div class="zhibo col-lg-2 col-md-3 col-sm-4 col-xs-6">
+
+            <a class="zhiboaa" href="#">
+                <div class="Hoverplay">
+                    <i class="fa fa-play" aria-hidden="true"></i>
+                </div>
+                <img src="~/img/gallery/gallery-img-12-3col.jpg" class="card-img-top" alt="...">
+            </a>
+            <i class="fa fa-address-book-o" aria-hidden="true"></i>
+            <a href="#" class="h4">Go sosos</a>
+            <div class="Livelabel row">
+                <span style="padding-left: 15px;" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">老师名称</span>
+                <span class="col-lg-4 col-md-4 col-sm-4 col-xs-4">热度 999</span>
+                <span style=" padding-right: 15px;" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">直播类型</span>
+            </div>
+        </div>
+
+        }
+
+    </div>
+
+</div>

@@ -1,0 +1,110 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    /*color: #424242;*/
+}
+
+/*窗口*/
+.window {
+    box-shadow: 0px 0px 6px;
+    background-color: #fff;
+    height: 500px;
+    width: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -250px 0 0 -250px;
+    display: none;
+    z-index: 100000;
+}
+/*窗口头部*/
+.window_top {
+    width: 100%;
+    height: 55px;
+}
+/*窗口关闭*/
+.window_close {
+    position: absolute;
+    display: block;
+  
+    width: 25px;
+    height: 25px;
+    right: 10px;
+    top: 5px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+    .window_close:hover {
+        color: fuchsia;
+    }
+    /*选择登录的文字*/
+.window_register {
+    font-size: 16px;
+    margin-left: 4em;
+    line-height: 55px;
+}
+
+    .window_register:hover {
+        color: fuchsia;
+    }
+    /*打开窗口，其他东西都虚幻*/
+.black_overlay {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+    z-index: 1001;
+    opacity: 0.8;
+    opacity: .80;
+    filter: alpha(opacity=80);
+}
+/*子窗口里*/
+.Inupt_Con {
+    width: 100%;
+    height: 320px;
+}
+
+.login_title {
+    display: block;
+    width: 100%;
+    height: 65px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.loginform {
+    width: 251px;
+    height: 210px;
+    margin: 0 auto;
+}
+
+.uinArea, .pwdArea {
+    position:relative;
+    width: 251px;
+    height: 50px;
+}
+
+.login_UserInput, .login_PwdInput, .login_Input {
+    font-size: 25px;
+    width: 251px;
+    height: 35px;
+}
+.user_label, .pwd_label{
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    pointer-events: none
+}
+.Signln_label {
+    opacity:0.8;
+    color:#ccc;
+}
+.Login_a {
+  color:#424242;
+  font-weight:bold;
+}

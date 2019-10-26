@@ -1,0 +1,73 @@
+﻿@using EmployeeTrainingEntity
+@model TeachingPlan
+@{
+    ViewData["Title"] = "Video";
+}
+
+<div class="row">
+    <div class="col-lg-12 mb-3 mt-3">
+        <h4>@Model.Title</h4>
+    </div>
+    <div class="col-lg-8" id="playerbox">
+        <video src="@ViewData["video"]" controls="controls" style="width:100%; background-color:#000;" autoplay muted>
+            你的浏览器不支持video标签
+        </video>
+    </div>
+    <div class="col-lg-4" id="coursebox">
+        @await Component.InvokeAsync("Courselist", Model.ID)
+    </div>
+</div>
+
+<style>
+    .clickL {
+        background-color: lightblue;
+        display:block;
+    }
+</style>
+<script type="text/javascript">
+    sessionStorage.lastname = "Smith";
+    //document.write(sessionStorage.lastname);
+        //jQuery
+    ////标签
+    //var list = $(".listbox a");
+    //        //var list = document.getElementsByTagName('a');
+    //        //console.log(list.length);
+    ////索引
+    //var index = sessionStorage.listIndex;
+    //console.log("index:" + index);
+    ////初始值
+    //list[index].className = "clickL";
+
+    //list.click(function () {
+    //    list.each(function () {
+    //        $(this).attr('class', "");
+    //    });
+    //    $(this).attr('class', "clickL");
+    //    sessionStorage.listIndex = $(this).index();//当前选择
+    //});
+</script>
+<script>
+    if (sessionStorage.listIndex) {
+        sessionStorage.listIndex = Number(sessionStorage.listIndex);
+    } else {
+        sessionStorage.listIndex = 0;
+    }
+    var list = document.querySelectorAll(".listbox a");
+    //存在对象
+    if (list.length > 0) {
+        var index = sessionStorage.listIndex;
+        //初始值
+        list[index].className = "clickL";
+
+        for (let i = 0; i < list.length; i++) {
+            list[i].onclick = function () {
+                //弹出对应的li节点里面的内容
+                for (var j = 0; j < list.length; j++) {
+                    list[j].className = "";
+                }
+                list[i].className = "clickL";
+                sessionStorage.listIndex = i;
+            }
+        }
+    }
+</script>

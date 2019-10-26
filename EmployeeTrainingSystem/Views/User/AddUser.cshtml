@@ -1,0 +1,30 @@
+﻿@model  UserAddViveMode 
+@{
+    ViewData["Title"] = "AddUser";
+     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <form asp-action="AddUser" asp-controller="User" method="post">
+        <div>
+            <div>
+                <label asp-for="UserName"></label>
+                <input type="text" asp-for="UserName" />
+                <span asp-validation-for="UserName"></span>
+            </div>
+        </div>
+        <div>
+            <div>
+                <label asp-for="Password"></label>
+                <input type="password" asp-for="Password" />
+                <span asp-validation-for="Password"></span>
+            </div>
+        </div>
+        <div>
+            <div>
+                <label asp-for="Email"></label>
+                <input type="text" asp-for="Email" />
+                <span asp-validation-for="Email"></span>
+            </div>
+        </div>
+         <button class="btn btn-danger" type="submit">提交</button>
+    </form>

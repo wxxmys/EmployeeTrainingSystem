@@ -1,0 +1,74 @@
+﻿
+
+
+@*注册模板样式*@
+@*<link href="~/css/SignUpFrom-style.css" rel="stylesheet" />
+    <script src="~/js/SignUpFrom-index.js"></script>*@
+
+
+
+<div class="card" style="width: 90%;">
+    <img class="card-img-top" src="~/img/MyImg/bj.jpg" alt="Card image cap">
+    <div class="card-body text-center">
+        <a href="#" data-toggle="modal" data-target="#exampleModalCenter">
+            <img style="width:110px; height:110px; border-radius:50%; margin-top:-90px" src="@ViewBag.member.Avatar" class="img-fluid rounded-circle">
+        </a>
+        <h5 class="card-title">Card title</h5>
+        <p>
+            <span class="text-justify" id="a">
+                Some men are born great. Others have greatness thrust upon them.
+                有些英雄造时势，有些时势造英雄。
+            </span>
+        </p>
+    </div>
+</div>
+
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">更改头像</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="@ViewBag.member.Avatar" class=" img-fluid rounded-circle" id="ImgAvatar" style="width:200px;height:200px" />
+            </div>
+            <form id="formAvatar" asp-action="Avatar" asp-controller="Member" enctype="multipart/form-data" method="post">
+                <div class="modal-footer">
+                    <input id="file" type="file" onchange="tupian(this);" name="files" accept="image/* " style="display:none;" />
+                    <button type="button" onclick=" $('#file').trigger('click')" class="btn btn-primary">上传头像</button>
+                    <button type="submit" class="btn btn-primary">保存更改</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<ul style="border:1px solid rgba(0, 0, 0, 0.125); list-style-type:none; width:90%;text-align:center;">
+    @if (ViewBag.member.Discriminator == "Students")
+    {
+        <li><a href="@Html.Raw(Url.Action("AddMember"))">我的课程</a></li>
+        <li><a href="@Html.Raw(Url.Action("AddMember"))">我的考试</a></li>
+        <li><a href="@Html.Raw(Url.Action("AddMember"))">个人信息</a></li>
+        <li><a href="@Html.Raw(Url.Action("AddMember"))">我的作业</a></li>
+    }
+    else
+    {
+        <li><a href="@Html.Raw(Url.Action("Index","Teaching"))">我的教学计划</a></li>
+        <li><a href="@Html.Raw(Url.Action("AddMember","Member"))">授课时间</a></li>
+        <li><a href="@Html.Raw(Url.Action("AddMember"))">我发布的考试</a></li>
+        <li><a href="@Html.Raw(Url.Action("AddMember"))">个人信息</a></li>
+        <li><a href="@Html.Raw(Url.Action("AddMember"))">我发布的作业</a></li>
+    }
+
+</ul>
+<script>
+  
+  
+
+
+</script>

@@ -1,0 +1,14 @@
+﻿@model CowViewModel
+<input type="hidden" asp-for="Category" value="@Model.Category" />
+
+<div class="form-group ">
+    <label for="validationDefault01 " class="col-form-label ">文件名</label>
+    <input type="text" class="form-control " id="validationDefault01 " name="Title" required />
+    <div class=" valid-feedback "></div>
+</div>
+<div class="form-group">
+    <label class="col-form-label">上传文件</label>
+    <div class="custom-file">
+        <input name="files" type="file" required accept="video/*"/>
+    </div>
+</div>

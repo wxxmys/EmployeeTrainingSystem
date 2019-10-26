@@ -1,0 +1,38 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var aa = "200";
+}
+    @*---------上新页面--------------*@
+<!-- AOS统一默认样式设置-->
+<script>
+    AOS.init({
+        offset: 200,
+        duration: 600,
+        easing: 'ease-in-sine',
+        delay: 300,
+        once: 'true',
+    });
+</script>
+<link href="~/css/site.css" rel="stylesheet" />
+<div data-aos="fade-up">
+    <div class="h4" style="color:#333333;margin-top:30px;">
+        课程上新<span class="h6" style="color:#bababa;">New product</span> <a href="#" class="Gengduo">
+            查看更多
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+        </a>
+    </div>
+    <hr />
+</div>
+<div class="row">
+    @foreach (var item in aa)
+    {
+    <div class="col-lg-4 mb-1" data-aos="fade-right">
+        <img class="card-img-top" src="~/img/gallery/blog-med-img-3.jpg" />
+        <div>
+                <p>Donec venenatis libero sapien, eu condimentum lacus</p>
+        </div>
+    </div>
+    }
+</div>

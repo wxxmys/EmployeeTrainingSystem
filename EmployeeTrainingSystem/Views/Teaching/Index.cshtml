@@ -1,0 +1,157 @@
+﻿@using EmployeeTrainingEntity
+@model IEnumerable<TeachingPlan>
+@{
+    ViewData["Title"] = "Index";
+     Layout = "~/Views/Shared/User_Layout.cshtml";
+}
+<h1>Index</h1>
+<button type="button" onclick="add('','')" class="btn btn-success">新增计划</button>
+<br />
+@foreach (var item in Model)
+{
+    @if (item.Parent == null)
+    {<div class="planbox">
+            <div class="text-danger">
+                @item.Title
+                <i class="fa fa-plus-1" onclick="add('@item.ID','z')" data-toggle="modal" data-target="#myModal2">title</i>
+                <i class="fa fa-plus-1" onclick="add('@item.ID','')" data-toggle="modal" data-target="#myModal3">file</i>
+                <i class="fa fa-pencil-square-o" onclick="edit('@item.ID')">edit</i>
+                <a asp-action="Delplan" asp-controller="Teaching" asp-route-id="@item.ID" onclick="return confirmActDel();">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </a>
+            </div>
+            @*章节内容*@
+            @foreach (var pitem in Model)
+            {
+                @if (pitem.Parent != null && pitem.Parent == item)
+                {
+                    <div class=" ml-3 text-info">
+                        @pitem.Title
+                        <i class="fa fa-plus-1" onclick="add('@pitem.ID')" data-toggle="modal" data-target="#myModal3">file</i>
+                        <i class="fa fa-pencil-square-o" onclick="edit('@pitem.ID')">edit</i>
+                        <a asp-action="Delmaterial" asp-controller="Teaching" asp-route-id="@pitem.ID" onclick="return confirmActDel();">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                        @*章节的文件*@
+                        @if (pitem.Courseware != null)
+                        {
+                            @foreach (var cows in pitem.Courseware.OrderBy(x=>x.CreateDate))
+                            {<div class=" ml-3">
+                                    <a href="@cows.LinkAddress" target="_blank">@cows.Title</a>
+                                    <i class="fa fa-pencil-square-o" onclick="edit('@cows.ID','@cows.IMethod')">edit</i>
+                                    <a asp-action="DeleteCows" asp-controller="Teaching" asp-route-id="@cows.ID" onclick="return confirmActDel();">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            }
+                        }
+                    </div>
+                }
+            }
+            @*当前计划的下级文件*@
+            @if (item.Courseware != null && item.Parent == null)
+            {
+                foreach (var c in item.Courseware.OrderBy(x=>x.CreateDate))
+                {
+                    <div class="ml-3">
+                        <a href="@c.LinkAddress" target="_blank">@c.Title</a>
+                        <i class="fa fa-plug" aria-hidden="true" onclick="edit('@c.ID','@c.IMethod')">edit</i>
+                        <a asp-action="DeleteCows" asp-controller="Teaching" asp-route-id="@c.ID" onclick="return confirmActDel();">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                }
+            }
+        </div>
+    }
+}
+
+@*模态框模板*@
+<partial name="_teaching" />
+
+<script>
+    //后台生成模态框 创建
+    function add(id, state) {
+        $.ajax({
+            type: "post",
+            async: true,
+            url: '/teaching/CretModal',
+            data: { id: id, sta: state },
+            dataType: 'json',
+            success: function (data) {
+                //视图中进行页面的刷新
+                $('#SetModal').html(data);
+                $('#myTeachModal').modal('toggle');
+            }
+        });
+    }
+    //后台生成模态框 修改
+    function edit(id, state) {
+        $.ajax({
+            type: "post",
+            async: true,
+            url: '/teaching/EditModal',
+            data: { id: id },
+            dataType: 'json',
+            success: function (data) {
+                //视图中进行页面的刷新
+                $('#SetModal').html(data);
+                $('#myTeachModal').modal('toggle');
+            }
+        });
+    }
+
+    //选择文件类型 模态框
+    function cowrecord(id) {
+        $.ajax({
+            type: "post",
+            async: true,
+            url: '/teaching/CowsRecord',
+            data: { id: id },
+            dataType: 'html',
+            success: function (data) {
+                //视图中进行页面的刷新
+                $('#Cowsbox').html(data);
+            }
+        });
+    }
+    function cowslive(id) {
+        $.ajax({
+            type: "post",
+            async: true,
+            url: '/teaching/cowslive',
+            data: { id: id },
+            dataType: 'html',
+            success: function (data) {
+                //视图中进行页面的刷新
+                $('#Cowsbox').html(data);
+            }
+        });
+    }
+    function Immediate() {
+        var file = document.getElementById("file").files[0];
+        //判断是不是图片
+        if (!/image\/\w+/.test(file.type)) {
+            alert('文件必须为图片！');
+            return false;
+        }
+        //读文件内容，读物理地址，把img标签的src属性重新赋值
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function (e) {
+            $("#imgCover").attr('src', this.result);
+        }
+    }
+
+    //清除内容
+    $('#myTeachModal').on('hidden.bs.modal', function (e) {
+        $('#SetModal').html("");
+    });
+    //确定删除
+    function confirmActDel() {
+        if (confirm('确定要删除吗?')) {
+            return true;
+        }
+        return false;
+    }
+</script>

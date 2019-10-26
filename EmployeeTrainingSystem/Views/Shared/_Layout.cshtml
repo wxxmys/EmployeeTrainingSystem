@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - EmployeeTrainingSystem</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+              crossorigin="anonymous"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+    </environment>
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/Account.css" />
+    @*<link rel="stylesheet" href="~/css/模板样式/custom-styles.css" />*@
+
+    <!--JQ AOS页面滚动插件-->
+    <link href="~/css/aos.css" rel="stylesheet" />
+    <script src="~/js/aos.js"></script>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 ">
+            <div class="container">
+                <a class="navbar-brand text-muted" asp-area="" asp-controller="Home" asp-action="Index">企业员工培训</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Curriculum" asp-action="index">实战课程</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">考试</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">猿问</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">手记</a>
+                        </li>
+                    </ul>
+
+                    <form class="form-inline mr-5 my-lg-0" method="get" target="_blank" action="https://www.baidu.com/s?ie=UTF-8&wd= ">
+                        <input class="form-control form-control-sm " type="search" placeholder="Search" aria-label="Search" name="wd">
+                        <button class="btn btn-sm btn-info my-2 my-sm-0" type="submit">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                    <span class="navbar-text">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <img href="javascript:void(0)" src="@ViewData["Avarda"]" onclick="ShowAndHide('show')" />
+                            <a href="#" class="Login_a">@User.Identity.Name</a>
+                            <a asp-action="Logout" asp-controller="Account" class="Login_a">,注销</a>
+                        }
+                        else
+                        {
+                            <a href="javascript:void(0)" class="Login_a " onclick="ShowAndHide('show','window')">登录</a>
+                        }
+                    </span>
+                    <span id="city" class="text-muted align-text-bottom ">努力定位中...</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!--侧边固定导航-->
+        <div class="position-fixed fixed-top" style="top:300px; left:20px; width:100px">
+            <partial name="_fixedNav" />
+        </div>
+        <partial name="_CookieConsentPartial" />
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            <div class="badge  text-wrap">
+                &copy; 2019 - 柳州市 - 柳职院 - 订单班第一小组 - 企业培训 - 0.1 vs
+            </div>
+        </div>
+    </footer>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
+        </script>
+    </environment>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @*子窗口*@
+    <div class="window">
+        <header class="window_top">
+            <a href="javascript:;" class="window_register">本站登录</a>
+            <a href="javascript:;" class="window_register">QQ登录</a>
+            <a href="javascript:;" class="window_register">微信登录</a>
+            <a class="window_close" href="javascript:void(0)" onclick="ShowAndHide('hide','window')">×</a>
+        </header>
+        <hr>
+        <div class="Inupt_Con">
+            <div class="Inupt_Con">
+                <h2 class="login_title">请您登陆或<a asp-action="AddMember" asp-controller="Member">注册</a></h2>
+                <form class="loginform" onsubmit="return false;" id="SignInFrom">
+                    <div class="uinArea">
+                        @*<label class="user_label" asp-for="UserName"></label>*@
+                        <input class="login_UserInput" name="UserName" id="UserName" placeholder="用户名" tabindex="1" />
+
+                    </div>
+                    <div class="pwdArea">
+                        @*<label class="pwd_label" asp-for="Password"></label>*@
+                        <input class="login_PwdInput" name="Password" id="Password" placeholder="密码" tabindex="2" />
+
+                    </div>
+                    <div>
+                        <button class="login_Input" onclick="submitSignInFrom()">登录</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="~/js/SignIn.js"></script>
+    @*打开窗口，别的东西虚幻点*@
+    <div id="fade" class="black_overlay"></div>
+    @RenderSection("Scripts", required: false)
+
+
+</body>
+</html>
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=kfGVGU4CP7RUXboBQljxIMab8y0ZthNz"></script>
+<script>
+@*位置定位*@
+    var geolocation = new BMap.Geolocation();
+    geolocation.getCurrentPosition(function (r) {
+        if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+            if (r.address.district != "city") {
+                document.getElementById("city").innerHTML = r.address.district;
+            }
+            if (r.address.city != "") {
+                document.getElementById('city').innerHTML = r.address.city;
+            }
+        }
+        else {
+            document.getElementById('city').innerHTML = "";
+        }
+    }, { enableHighAccuracy: true })
+
+
+
+    //@*登录From的JS*@
+function submitSignInFrom() {
+    if ($("#UserName").val().trim() == "") {
+        alert("用户名不能为空");
+        return;
+    }
+    if ($("#Password").val().trim() == "") {
+        alert("用户名不能为空");
+        return;
+    }
+    $.ajax({
+        url: '/Account/SignIn',
+        data: $('#SignInFrom').serialize(),
+        type: 'POST',
+        success: function () {
+              document.getElementsByClassName("window")[0].style.display = "none";
+            fade.style.display = 'none';
+             window.location = ' @Html.Raw(Context.Request.Query["returnUrl"].Count > 0 ? Context.Request.Query["returnUrl"][0] : Url.Action("Index", "Home"))';
+        },
+        error: function (xhr) {
+            if (xhr.status == '401') {
+                alert('密码错误。');
+            }
+            else if (xhr.status == '404') {
+                alert('用户不存在。');
+            }
+            else {
+                alert('服务器错误。');
+            }
+        }
+    })
+}
+</script>

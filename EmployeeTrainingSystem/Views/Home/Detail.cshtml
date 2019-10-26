@@ -1,0 +1,64 @@
+﻿@using EmployeeTrainingEntity
+@model IEnumerable<TeachingPlan>
+@foreach (var item in Model)
+{
+    if (item.Parent == null)
+    {
+        <div class="row">
+            <div class="col-lg-12 mb-3 mt-3">
+                <h4>@item.Title</h4>
+            </div>
+            <div class="col-lg-6">
+                <img class="img-fluid img-thumbnail" src="@item.Cover"
+                     alt="封面">
+            </div>
+            <div class="col-lg-6">
+                <div class="text-wrap mb-3" style="height:130px; overflow:hidden;">
+                    <h5 class="mt-0">描述简介</h5>
+                    <span class="col-1 text-justify">
+                        @item.Content
+                    </span>
+                </div>
+                <div class="border-top">
+                    <ul class="list-group mt-3" id="ultime">
+                        <li>开课时间:@item.StartDate</li>
+                        <li>结课时间:@item.StartDate</li>
+                        <li>创建时间:@item.CreateDate</li>
+                        <li>其他内容:</li>
+                    </ul>
+                    <a type="button" class="mt-3 btn btn-sm btn-primary text-right"
+                       asp-action="index" asp-controller="player" asp-route-id="@item.ID"  asp-route-p="">开始学习</a>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12 mb-5">
+                <button type="button" class="btn btn-primary">课程内容</button>
+                <button type="button" class="btn btn-secondary">授课教师</button>
+                <button type="button" class="btn btn-success">常见问题</button>
+            </div>
+            <div class="col">
+                <h4>课程章节</h4>
+                <div id="coursebox">
+                    <partial name="_Coursechapters" for="@Model" />
+                </div>
+            </div>
+        </div>
+    }
+}
+<style>
+    #ultime {
+        display: block;
+        background: lightblue;
+    }
+
+        #ultime li {
+            display: block;
+            list-style: none;
+            float: left;
+            width: 50%;
+            text-align: left;
+            padding: 5px 0;
+            padding-left: 5px;
+        }
+</style>

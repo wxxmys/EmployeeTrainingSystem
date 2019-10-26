@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    // List<EmployeeViewModel> elye = ViewBag.Employee as List<EmployeeViewModel>;
+}
+@Html.ActionLink("返回", "Index", "Publishjob", new { id = "" }, new { style = "text-align:left;border:0px;", @class = "btn btn-default glyphicon glyphicon-repeat" })
+<style>
+    .aa {
+        background-color: #ffffff;
+        line-height: 35px;
+    }
+</style>
+<div class="row">
+
+    <div class="col-md-6">
+        @using (Html.BeginForm("Update", "Publishjob", FormMethod.Post))
+        {
+            <div class="row mb-md-3">
+                <div class="text-md-right col-md-2 ">
+                    <label class="aa">班级:</label>
+                </div>
+                <div class="col-md-10">
+                    <select class="custom-select " id="inputGroupSelect01" name="Class.ID">
+                        @foreach (var item in ViewBag.ClassValue)
+                        {
+                            <option value="@item.ID">@item.ClassName</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="input-groupc row mb-md-3">
+                <div class="text-md-right col-md-2">
+                    <label class="aa">老师:</label>
+                </div>
+                <div class="col-md-10">
+                    <select class="custom-select" id="inputGroupSelect01" name="Teacher.ID">
+                        @foreach (var item in ViewBag.TeacherValue)
+                        {
+                            <option value="@item.ID">@item.Name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-groupc row mb-md-3 md-3">
+                <div class="text-md-right col-md-2">
+                    <label class="aa">内容:</label>
+                </div>
+                <div class="col-md-10" id="basic-addon1">
+                    <input type="text" class="form-control" placeholder="内容" name="Content" value="@Model.Content">
+                </div>
+            </div>
+
+            <div class="input-groupc row mb-md-3">
+                <div class="text-md-right col-md-2">
+                    <label class="aa">题库:</label>
+                </div>
+                <div class="col-md-10">
+                    <select class="custom-select" id="inputGroupSelect01" name="Information.ID">
+                        @foreach (var item in ViewBag.InformationValue)
+                        {
+                            <option value="@item.ID">@item.Title</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-groupc row mb-md-3">
+                <div class="text-md-right col-md-2">
+                    <label class="aa">员工:</label>
+                </div>
+                <div class="col-md-10">
+                    <select class="custom-select" id="inputGroupSelect01" name="Employee.ID">
+                        @foreach (var item in ViewBag.EmployeeValue)
+                        {
+                            <option selected value="@item.ID">@item.Name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <p></p>
+            <div style="margin:0 auto; width:180px;">
+                <input href="~/Views/Publishjob/Index.cshtml" class="btn btn-success glyphicon" type="submit" name="添加" />
+                <input style="margin-left:30px;" class="btn btn-danger" type="reset" name="取消" />
+            </div>
+
+        }
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+        <label>
+            <h3>
+                Welcome to Piccolo. <br>
+                A Big Theme in a Small Package.
+            </h3>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pretium vulputate magna sit amet blandit.</p>
+            <p>Cras rutrum, massa non blandit convallis, est lacus gravida enim, eu fermentum ligula orci et tortor. In sit amet nisl ac leo pulvinar molestie. Morbi blandit ultricies ultrices.</p>
+            <a href="#"><i class="icon-plus-sign"></i>Read More</a>
+        </label>
+
+    </div>
+</div>
+

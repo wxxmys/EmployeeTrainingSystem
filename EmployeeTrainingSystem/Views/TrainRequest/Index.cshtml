@@ -1,0 +1,80 @@
+﻿@*@model IEnumerable<EmployeeTrainingEntity.TrainRequest>*@
+@model X.PagedList.IPagedList<EmployeeTrainingEntity.TrainRequest>
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Mvc.Common;
+
+@{
+    ViewData["Title"] = "Index";
+}
+<html>
+<head>
+    <link href="~/css/分页样式/PagedList.css" rel="stylesheet" />
+    <script>
+        function RemoveDelete(ID) {
+            $.ajax({
+                type: "post",
+                async: true,
+                url: '../../TrainRequest/Delete',
+                data: { ID: ID },
+                dataType: 'json',
+                success: function (data) {
+                    if (data == "ok")
+                        location.reload();
+                    else
+                        alert("删除失败")
+                }
+            });
+        }
+        function UpdateDetail(ID) {
+            alert(ID);
+            $.ajax({
+                type: "post",
+                async: true,
+                url: '../../TrainRequest/Update',
+                data: { ID: ID },
+                dataType: 'json',
+                success: function (data) {
+                    alert(ID);
+                }
+            });
+        }
+
+/**/</script>
+
+</head>
+<body>
+<h1>培训申请</h1>
+@Html.ActionLink("新增", "Insert")
+    <table class="table">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>时间</th>
+                <th>部门</th>
+                <th>培训课程</th>
+                <th>申请内容</th>
+                <th>状态</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td style="display:none">@i.ID</td>
+                    <td>@i.Person</td>
+                    <td>@i.Time</td>
+                    <td>@i.DepartmentName?.DepartmentName</td>@*加？可空*@
+                    <td>@i.ClassScheduleName?.ClassScheduleName</td>
+                    <td>@i.ApplicationContent</td>
+                    <td>@i.State</td>
+                    <td>@Html.ActionLink("修改", "Update", "TrainRequest", new { ID = @i.ID })&nbsp;&nbsp;<a href="#" onclick="RemoveDelete('@i.ID');">删除</a></td>
+                </tr>
+            }
+        </tbody>
+        @* @Html.PagedListPager(Model, page => Url.Action("Index", new { page,pageSize=ViewData["PageSize"] }))*@
+        <tfoot>@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))</tfoot>
+
+    </table>
+</body>
+</html>

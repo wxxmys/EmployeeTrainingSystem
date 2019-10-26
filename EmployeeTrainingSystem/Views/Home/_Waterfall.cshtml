@@ -1,0 +1,118 @@
+﻿@{
+
+}
+@*---------手记页面--------------*@
+    <script>
+        AOS.init({
+            offset: 200,
+            duration: 600,
+            easing: 'ease-in-sine',
+            delay: 300,
+            once: 'true',
+        });
+    </script>
+<link href="~/css/waterfall-default.css" rel="stylesheet" />
+<link href="~/css/waterfall-normalize.css" rel="stylesheet" />
+
+<style type="text/css">/*瀑布流样式*/
+	.demo {
+    position: relative;
+    opacity: 0;
+    transition: .2s ease;
+    margin-bottom: 60px;
+}
+
+.grid {
+    position: relative;
+    /* fluffy */
+    margin: 0 auto;
+    /* end fluffy */
+}
+
+.grid-item {
+
+    padding:15px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* fluffy */
+    width: 340px;
+    height: 120px;
+    border: 1px solid #333333;
+    /* end fluffy */
+    -webkit-transition: .3s ease-in-out;
+    -o-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+     text-align:center
+}
+
+</style>
+
+<div data-aos="fade-up">
+    <div class="h4" style="color:#333333;margin-top:30px;">
+        优秀讲师<span class="h6" style="color:#bababa;">Great speakers</span> <a href="#" class="Gengduo">
+            查看更多
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+        </a>
+    </div>
+    <hr />
+</div>
+
+<div class="htmleaf-container">
+
+    <div class="demo">
+        <div class="grid" data-aos="fade-up">
+            <a href="#">
+                <div class="grid-item" style="height: 230px;">
+
+                    <img src="~/img/gallery/flickr-img-3.jpg"/>
+                    <div style="overflow:hidden;height:110px;">
+                        <h5 class="gridconceal">奥特曼</h5>
+                        <p class="gridconceal" style="text-align:center;">全站工程师</p>
+                        <p class="grid-p">曾就职于奥特星球、银河系，600年工作经验，在ASP.NET、React、Native、ue等领域具有丰富的开发经验，目前专注于领域业务解决方案。热爱分享，个人著有专利4项，社区文章数篇。</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="grid-item" style="height: 250px;">
+
+                    <img src="~/img/gallery/flickr-img-3.jpg" />
+                    <div style="overflow: hidden;height:130px;">
+                        <h5 class="gridconceal">奥特曼</h5>
+                        <p class="gridconceal" style="text-align:center;">全站工程师</p>
+                        <p class="grid-p">曾就职于奥特星球、银河系，600年工作经验，在ASP.NET、React、Native、ue等领域具有丰富的开发经验，目前专注于领域业务解决方案。热爱分享，个人著有专利4项，社区文章数篇曾就职于奥特星球、银河系，600年工作经验，在ASP.NET、React、Native、ue等领域具有丰富的开发经验。</p>
+                    </div>
+                </div>
+            </a>
+            <div class="grid-item" style="height: 290px;"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item" style="height: 140px;"></div>
+            <div class="grid-item" style="height: 200px"></div>
+            <div class="grid-item" style="height: 150px"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item" style="height: 220px"></div>
+            <div class="grid-item" style="height: 205px"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/waterfall-minigrid.js"></script>
+<script>
+    (function () {
+        minigrid('.grid', '.grid-item', 6, null,
+            function () {
+                var d = document.querySelector('.demo');
+                d.style.opacity = 1;
+            }
+        );
+        window.addEventListener('resize', function () {
+            minigrid('.grid', '.grid-item');
+        });
+    })();
+</script>

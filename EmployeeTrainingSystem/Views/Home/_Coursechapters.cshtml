@@ -1,0 +1,39 @@
+﻿@using EmployeeTrainingEntity
+@model IEnumerable<TeachingPlan>
+@foreach (var item in Model)
+{
+    @if (item.Parent == null)
+    {
+        <div class="planbox">
+            @*章节内容*@
+            @foreach (var pitem in Model)
+            {
+                @if (pitem.Parent != null && pitem.Parent == item)
+                {
+                    <div class=" ml-3 text-break">
+                        @pitem.Title
+                        @*章节的文件*@
+                        @if (pitem.Courseware != null)
+                        {
+                            @foreach (var cows in pitem.Courseware)
+                            {<div class=" ml-3">
+                                 <span class="text-info">@cows.Title</span>
+                                </div>
+                            }
+                        }
+                    </div>
+                }
+            }
+            @*当前计划的下级文件*@
+            @if (item.Courseware != null && item.Parent == null)
+            {
+                foreach (var c in item.Courseware)
+                {
+                    <div class="ml-3">
+                        <span class="text-info">@c.Title</span>
+                    </div>
+                }
+            }
+        </div>
+    }
+}

@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "TestPaper", FormMethod.Post, new { id = Model.ID }))
+{
+    <fieldset>
+        <legend align="center">修改试卷</legend>
+        <div align="center">
+            <table>
+                <tr>
+                    <td>试卷名称：</td>
+                    <td>
+                        <input type="text" name="Name" value="@Model.Name" />
+                    </td>
+                </tr>
+                @*<tr>
+                    <td>老师：</td>
+                    <td>
+                        <select style="width:100px;" name="Teacher.ID">
+                            @foreach (var item in ViewBag.TeacherValue)
+                            {
+                                <option value="@item.ID">@item.Name</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>班级：</td>
+                    <td>
+                        <select style="width:100px;" name="CollegeClass.ID">
+                            @foreach (var item in ViewBag.CollegeClassValue)
+                            {
+                                <option value="@item.ID">@item.Name</option>
+                            }
+                        </select>
+                    </td>
+                </tr>*@
+                <tr>
+                    <td>试卷创建时间：</td>
+                    <td>
+                        <input type="datetime-local" name="Time" value="@Model.Time" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>考试时间：</td>
+                    <td>
+                        <input type="text" name="TestTime" value="@Model.TestTime" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>成绩：</td>
+                    <td>
+                        <input type="text" name="Performance" value="@Model.Performance" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </fieldset>
+    <input type="submit" class="btn btn-default" value="修改" style="margin-top: 20px; color:green;border:1px solid ;" />
+    <div id="divContainer">
+
+        <button type="button" class="btn btn-danger">@Html.ActionLink("返回", "Index", "Information")</button>
+
+    </div>
+}

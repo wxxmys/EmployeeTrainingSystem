@@ -1,0 +1,351 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: Times New Roman;
+}
+
+img {
+    border: none;
+}
+
+a {
+    border: none;
+    text-decoration: none;
+}
+
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+/*banner_x*/
+.banner_x {
+    width: 1226px;
+    height: 100px;
+}
+
+    .banner_x .logo {
+        width: 50px;
+        height: 100px;
+    }
+
+    .banner_x .ad_top {
+        width: 180px;
+        height: 100px;
+    }
+
+    .banner_x .nav ul li {
+        float: left;
+        height: 100px;
+        line-height: 100px;
+    }
+
+        .banner_x .nav ul li a {
+            display: inline-block;
+            color: #000;
+            font-size: 16px;
+            padding: 0 10px;
+        }
+
+            .banner_x .nav ul li a:hover {
+                color: rgb(255,103,0);
+            }
+
+    .banner_x .search {
+        width: 308px;
+        height: 100px;
+        line-height: 100px;
+    }
+
+        .banner_x .search .text {
+            width: 250px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 12px;
+            margin-top: 25px;
+            border: 1px solid #ccc;
+        }
+
+            .banner_x .search .text:hover {
+                border-color: #ff6700;
+            }
+
+            .banner_x .search .text .shuru {
+                border: none;
+                width: 250px;
+                height: 50px;
+            }
+
+        .banner_x .search .submit {
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 12px;
+            margin-top: 25px;
+            border: 1px solid #ccc;
+        }
+
+            .banner_x .search .submit .sousuo {
+                letter-spacing: 3px;
+                text-align: center;
+                width: 50px;
+                height: 50px;
+                border: none;
+                background: none;
+                cursor: pointer;
+            }
+
+            .banner_x .search .submit:hover {
+                border-color: #ff6700;
+                color: #ff6700;
+            }
+/*banner_y*/
+.banner_y {
+    width: 1226px;
+    height: 460px;
+    background-color:#fff;
+}
+
+    .banner_y .nav {
+        width: 234px;
+        height: 460px;
+        background-color:#fff;
+    }
+
+        .banner_y .nav ul {
+            padding: 20px 0;
+            position: relative;
+            background-color: rgb(231, 231, 231);
+            height:400px;
+        }
+
+            .banner_y .nav ul li {
+                display: block;
+                width: 240px;
+                height: 40px;
+                line-height: 40px;
+                font-size: 14px;
+                padding: 0 30px;
+               
+            }
+
+                .banner_y .nav ul li .pop {
+                    width: 800px;
+                    height: 460px;
+                    background: #fff;
+                    position: absolute;
+                    left: 234px;
+                    top: 0px;
+                    display: none;
+                    z-index:999;
+                }
+
+                .banner_y .nav ul li:hover .pop {
+                    display: block;
+                    box-shadow: 2px 3px 5px #ccc;
+                    border-top: 1px solid #ccc;
+                }
+
+                .banner_y .nav ul li .pop .left {
+                    width: 265px;
+                    height: 460px;
+                    background: #fff;
+                }
+
+                    .banner_y .nav ul li .pop .left div {
+                        margin-bottom: 3px;
+                    }
+
+                    .banner_y .nav ul li .pop .left .xuangou_left {
+                        height: 40px;
+                        line-height: 40px;
+                        font-size: 14px;
+                        margin-left: 10px;
+                        margin-top: 20px;
+                    }
+
+                        .banner_y .nav ul li .pop .left .xuangou_left a {
+                            color: #000;
+                        }
+
+                            .banner_y .nav ul li .pop .left .xuangou_left a img {
+                                valign: middle;
+                            }
+
+                            .banner_y .nav ul li .pop .left .xuangou_left a span {
+                                display: inline-block;
+                                margin-left: 10px;
+                                font-size: 14px;
+                            }
+
+                                .banner_y .nav ul li .pop .left .xuangou_left a span:hover {
+                                    
+                                }
+
+                    .banner_y .nav ul li .pop .left .xuangou_right {
+                        margin-top: 25px;
+                        height: 40px;
+                        line-height: 40px;
+                    }
+
+                        .banner_y .nav ul li .pop .left .xuangou_right a {
+                            display: block;
+                            width: 60px;
+                            line-height: 24px;
+                            height: 24px;
+                            text-align: center;
+                            font-size: 12px;
+                            color: #ff6700;
+                            border: 1px solid #ff6700;
+                        }
+
+                            .banner_y .nav ul li .pop .left .xuangou_right a:hover {
+                                display: block;
+                               
+                                color: #fff;
+                            }
+
+                .banner_y .nav ul li .pop .ctn {
+                    width: 265px;
+                    height: 460px;
+                }
+
+                    .banner_y .nav ul li .pop .ctn div {
+                        margin-bottom: 3px;
+                    }
+
+                    .banner_y .nav ul li .pop .ctn .xuangou_left {
+                        height: 40px;
+                        line-height: 40px;
+                        font-size: 14px;
+                        margin-left: 10px;
+                        margin-top: 20px;
+                    }
+
+                        .banner_y .nav ul li .pop .ctn .xuangou_left a {
+                            color: #000;
+                        }
+
+                            .banner_y .nav ul li .pop .ctn .xuangou_left a img {
+                                valign: middle;
+                            }
+
+                            .banner_y .nav ul li .pop .ctn .xuangou_left a span {
+                                display: inline-block;
+                                margin-left: 10px;
+                                font-size: 14px;
+                            }
+
+                                .banner_y .nav ul li .pop .ctn .xuangou_left a span:hover {
+                                    
+                                }
+
+                    .banner_y .nav ul li .pop .ctn .xuangou_right {
+                        margin-top: 25px;
+                        height: 40px;
+                        line-height: 40px;
+                    }
+
+                        .banner_y .nav ul li .pop .ctn .xuangou_right a {
+                            display: block;
+                            width: 60px;
+                            line-height: 24px;
+                            height: 24px;
+                            text-align: center;
+                            font-size: 12px;
+                            color: #ff6700;
+                            border: 1px solid #ff6700;
+                        }
+
+                            .banner_y .nav ul li .pop .ctn .xuangou_right a:hover {
+                                display: block;
+                                color: deepskyblue;
+                                color: #fff;
+                            }
+
+                .banner_y .nav ul li .pop .right {
+                    width: 265px;
+                    height: 460px;
+                    margin-right: 5px;
+                }
+
+                    .banner_y .nav ul li .pop .right div {
+                        margin-bottom: 3px;
+                    }
+
+                    .banner_y .nav ul li .pop .right .xuangou_left {
+                        height: 40px;
+                        line-height: 40px;
+                        font-size: 14px;
+                        margin-left: 10px;
+                        margin-top: 20px;
+                    }
+
+                        .banner_y .nav ul li .pop .right .xuangou_left a {
+                            color: #000;
+                        }
+
+                            .banner_y .nav ul li .pop .right .xuangou_left a img {
+                               vertical-align: middle;
+                            }
+
+                            .banner_y .nav ul li .pop .right .xuangou_left a span {
+                                display: inline-block;
+                                margin-left: 10px;
+                                font-size: 14px;
+                            }
+
+                                .banner_y .nav ul li .pop .right .xuangou_left a span:hover {
+
+                                }
+
+                    .banner_y .nav ul li .pop .right .xuangou_right {
+                        margin-top: 25px;
+                        height: 40px;
+                        line-height: 40px;
+                    }
+
+                        .banner_y .nav ul li .pop .right .xuangou_right a {
+                            display: block;
+                            width: 60px;
+                            line-height: 24px;
+                            height: 24px;
+                            text-align: center;
+                            font-size: 12px;
+                            color: #ff6700;
+                            border: 1px solid #ff6700;
+                        }
+
+                            .banner_y .nav ul li .pop .right .xuangou_right a:hover {
+                                display: block;
+                                color: deepskyblue;
+                                color: #fff;
+                            }
+
+                .banner_y .nav ul li:hover {
+                    background-color: rgb(128,128,128);
+                }
+
+                .banner_y .nav ul li a {
+                    display: inline-block;
+                    margin-left: 10px;
+                    color:black;
+                }
+
+.tlinks {
+    text-indent: -9999px;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    overflow: hidden;
+}

@@ -1,0 +1,48 @@
+﻿@using EmployeeTrainingEntity
+@model IEnumerable<TeachingPlan>
+@{
+    var aa = "2000000000";
+}
+@*---------热门课程页面--------------*@
+
+<!-- AOS统一默认样式设置-->
+<script>
+    AOS.init({
+        offset: 200,
+        duration: 600,
+        easing: 'ease-in-sine',
+        delay: 300,
+        once: 'true',
+    });
+</script>
+<link href="~/css/site.css" rel="stylesheet" />
+<div data-aos="fade-up">
+    <div class="h4" style="color:#333333;margin-top:30px;">
+        热门课程<span class="h6" style="color:#bababa;">Most popular courses</span>
+        <a href="#" class="Gengduo">
+            查看更多
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+        </a>
+    </div>
+    <hr />
+</div>
+<div class="container">
+    <div class="row" data-aos="fade-up">
+
+
+        @foreach (var item in Model)
+        {
+        <div class="HTMOT col-lg-2 col-md-3 col-sm-4 col-xs-6">
+            <div style="overflow:hidden">
+                <img src="@item.Cover" class="card-img-top HTMOTimg" alt="...">
+            </div>
+            <h5 class="card-title">@item.Title</h5>
+            <p class="card-text text-truncate">@item.Content</p>
+            <a asp-action="detail" asp-controller="home" asp-route-id="@item.ID" class="btn btn-primary">Go somewhere</a>
+        </div>
+        }
+
+
+    </div>
+
+</div>

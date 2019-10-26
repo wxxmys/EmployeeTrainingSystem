@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@using EmployeeTrainingEntity
+@model IEnumerable<TeachingPlan>
+<body>
+    <!-- 内容-->
+    <div class="container-fluid">
+        <!-- 上面轮播图-->
+        <div class="row">
+
+            @*<div class="col-md-3">
+                    <partial name="~/Views/Home/left_nav.cshtml" />
+                </div>*@
+
+            <div class="col-lg-7">
+                <div id="demo" class="carousel slide" data-ride="carousel" data-interval="3000" style="width:100%;">
+                    <!-- 指示符 -->
+                    <ul class="carousel-indicators">
+                        <li data-target="#demo" data-slide-to="0" class="active"></li>
+                        <li data-target="#demo" data-slide-to="1"></li>
+                        <li data-target="#demo" data-slide-to="2"></li>
+                    </ul>
+                    <!-- 轮播图片 -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img style="width:100%" src="~/img/gallery/slider-img-1.jpg" />
+                        </div>
+                        <div class="carousel-item">
+                            <img style="width:100%" src="~/img/gallery/slider-img-2.jpg" />
+                        </div>
+                        <div class="carousel-item">
+                            <img style="width:100%" src="~/img/gallery/slider-img-3.jpg" />
+                        </div>
+                    </div>
+
+                    <!-- 左右切换按钮 -->
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="span4">
+                    <h3>
+                        Welcome to Piccolo. <br>
+                        A Big Theme in a Small Package.
+                    </h3>
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pretium vulputate magna sit amet blandit.</p>
+                    <p>Cras rutrum, massa non blandit convallis, est lacus gravida enim, eu fermentum ligula orci et tortor. In sit amet nisl ac leo pulvinar molestie. Morbi blandit ultricies ultrices.</p>
+                    <a href="#"><i class="icon-plus-sign"></i>Read More</a>
+                </div>
+            </div>
+        </div>
+        <!-- 热门视频列表-->
+        <partial name="_videolist" for="@Model" />
+
+        <!-- 上新列表-->
+        <partial name="~/Views/Home/_Introductiontobar.cshtml" />
+
+        <!-- 直播-->
+        <partial name="~/Views/Home/_streaming .cshtml" />
+
+        <!-- 优秀员工-->
+        <partial name="~/Views/Home/_Waterfall.cshtml" />
+    </div>
+</body>

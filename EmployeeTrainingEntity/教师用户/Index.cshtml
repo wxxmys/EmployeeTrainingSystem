@@ -1,0 +1,64 @@
+﻿@model IEnumerable<EmployeeTrainingEntity.TrainPlan>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<html>
+<head>
+    <script>
+        function RemoveDelete(ID) {
+            $.ajax({
+                type: "post",
+                async: true,
+                url: '../../TrainPlan/Delete',
+                data: { ID: ID },
+                dataType: 'json',
+                success: function (data) {
+                    if (data == "ok")
+                        location.reload();
+                    else
+                        alert("删除失败")
+                }
+            });
+        }
+                function UpdateDetail(ID){
+                    alert(ID);
+                    $.ajax({
+                        type: "post",
+                        async: true,
+                        url: '../../TrainPlan/Edit',
+                        data: { ID: ID },
+                        dataType: 'json',
+                        success: function (data) {
+                            alert(ID);
+                        }
+                    });
+                }
+    </script>
+</head>
+<body>
+    <h1>培训计划</h1>
+    @Html.ActionLink("新增","Create")
+    <table class="table">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>时间</th>
+                <th>培训计划内容</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var i in Model)
+            {
+            <tr>
+                <td>@i.Person</td>
+                <td>@i.Time</td>
+                <td>@i.Content</td>
+                <td>@Html.ActionLink("修改", "Edit", "TrainPlan", new { ID = @i.ID })&nbsp;&nbsp;<a href="#" onclick="RemoveDelete('@i.ID');">删除</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+   </body>
+</html>

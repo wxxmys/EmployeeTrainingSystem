@@ -1,0 +1,76 @@
+﻿@using EmployeeTrainingEntity;
+@model EmployeeTrainingEntity.TrainRequest
+@{
+    ViewData["Title"] = "Update";
+}
+
+<html>
+<head>
+
+    @*<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>*@
+</head>
+<body>
+    <h1>修改培训申请</h1>
+    @using (Html.BeginForm("Update", "Train", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>姓名:</td>
+                <td>
+                    <input type="text" class="form-control" placeholder="请输入姓名" name="Person">
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>时间:</td>
+                <td><input type="datetime" class="form-control" placeholder="XXXX/XX/XX" name="Time"></td>
+            </tr>
+            <tr>
+                <td> 部门:</td>
+                <td>
+                    <select name="DePartmentName.ID" class="form-control">
+                        @foreach (var item in ViewBag.DepartmentName)
+                        {
+                            <option value="@item.ID">@item.DepartmentName</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td> 培训课程:</td>
+                <td>
+                    <select name="ClassScheduleName.ID" class="form-control">
+                        @foreach (var item in ViewBag.ClassScheduleName)
+                        {
+                            <option value="@item.ID">@item.ClassScheduleName</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>申请内容：</td>
+                <td><input type="text" class="form-control" placeholder="请输入申请的内容" name="ApplicationContent"></td>
+            </tr>
+            <tr>
+                <td>状态:</td>
+                <td>
+                    <select asp-items="Html.GetEnumSelectList<State>()" asp-for="State" class="form-control">
+                        @*下拉框获取枚举并赋值*@
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" name="添加" />
+                <input type="reset" name="取消" />
+            </td>
+        </tr>
+    </table>
+}
+    @Html.ActionLink("返回首页", "Index")
+</body>
+</html>
